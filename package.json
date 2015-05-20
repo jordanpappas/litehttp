@@ -13,5 +13,6 @@
     "index.html"
   ],
   "author": "Jordan Pappas <jordanpappas@yahoo.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "github":"https://github.com/jordanpappas/litehttp.git"
 }
