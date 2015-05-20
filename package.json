@@ -1,6 +1,6 @@
 {
   "name": "litehttp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple way to server /public",
   "main": "index.js",
   "scripts": {
