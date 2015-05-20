@@ -1,7 +1,7 @@
 # litehttp - Simple! #
 ```
-> mkdir mysite && cd mysite
-> npm i litehttp
+$ mkdir mysite && cd mysite
+$ npm i litehttp
 ```
 put an index.html file in ./public and
 ```javascript
