@@ -1,4 +1,6 @@
 # litehttp - Simple! #
+When nothin else is lite enough.
+
 ```
 $ mkdir mysite && cd mysite
 $ npm i litehttp
