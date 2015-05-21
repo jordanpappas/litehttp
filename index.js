@@ -4,15 +4,7 @@ var path = require('path');
 var url = require('url');
 var fs = require('fs');
 
-var mimeTypes = {
-  "html": "text/html",
-  "text": "text/plain",
-  "jpeg": "image/jpeg",
-  "jpg": "image/jpeg",
-  "png": "image/png",
-  "js": "text/javascript",
-  "css": "text/css"
-};
+var mimeTypes = require("./mimeTypes.json");
 
 function handler(req, res) {
   var uri = url.parse(req.url).pathname;
