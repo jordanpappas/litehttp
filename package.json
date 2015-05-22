@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jordanpappas/litehttp/issues"
   },
-  "homepage": "https://github.com/jordanpappas/litehttp"
+  "homepage": "https://github.com/jordanpappas/litehttp",
+  "dependencies": {
+    "mimes": "*"
+  }
 }
