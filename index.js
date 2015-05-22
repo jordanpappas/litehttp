@@ -8,19 +8,13 @@ var mimeTypes = require('mimes');
 
 function handler(req, res) {
   var uri = url.parse(req.url).pathname;
-
-  if (uri === '/') {
-    res.writeHead(200, mimeTypes.html);
-    fs.createReadStream(
-      path.join(process.cwd(), 'public/index.html')
-    ).pipe(res);
-    return;
-  }
-
-  var filename = path.join(process.cwd(), 'public', uri);
   
-  fs.exists(filename, function(exists) {
-    if (!exists) {
+  if (uri === '/') uri = 'index.html';
+  
+  var filename = path.join(process.cwd(), 'public', uri);
+
+  fs.stat(filename, function(err, stats) {
+    if (err) {
       console.log('file does not exist: ' + filename);
       res.writeHead(404, mimeTypes.txt);
       res.end('404: not found.');
