@@ -22,7 +22,7 @@ function handler(req, res) {
   fs.exists(filename, function(exists) {
     if (!exists) {
       console.log('file does not exist: ' + filename);
-      res.writeHead(404, mimeTypes.text);
+      res.writeHead(404, mimeTypes.txt);
       res.end('404: not found.');
       return;
     }
