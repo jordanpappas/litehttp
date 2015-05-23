@@ -1,30 +1,28 @@
-var server = require('http').createServer(handler);
-
-var path = require('path');
-var url = require('url');
 var fs = require('fs');
+var url = require('url');
+var path = require('path');
+var http = require('http');
+var mimes = require('mimes');
 
-var mimeTypes = require('mimes');
+var server = module.exports = http.createServer(handler);
 
 function handler(req, res) {
   var uri = url.parse(req.url).pathname;
   
   if (uri === '/') uri = 'index.html';
   
-  var filename = path.join(process.cwd(), 'public', uri);
+  var file = path.join(process.cwd(), 'public', uri);
 
-  fs.stat(filename, function(err, stats) {
+  fs.stat(file, function(err, stats) {
     if (err) {
-      console.log('file does not exist: ' + filename);
-      res.writeHead(404, mimeTypes.txt);
+      console.log('file does not exist: ' + file);
+      res.writeHead(404, mimes.txt);
       res.end('404: not found.');
       return;
     }
 
-    var mt = mimeTypes[path.extname(filename).split(".")[1]];
-    res.writeHead(200, mt);
-    fs.createReadStream(filename).pipe(res);
+    var ext = path.extname(file).split('.')[1];
+    res.writeHead(200, mimes[ext]);
+    fs.createReadStream(file).pipe(res);
   });
 }
-
-module.exports = server;
